@@ -13,7 +13,8 @@
             height: 100vh;
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-image: url('https://cdn.discordapp.com/attachments/1317308434676453476/1320162364170960896/kazona.gif?ex=67689883&is=67674703&hm=d9510fe5a3e40dfdbb123cf865e134e376eeec5a9ff050177a17ba23d60a895d&');
+            background-color: #1E1E2E; /* Màu nền tối */
+            background-image: url('https://cdn.discordapp.com/attachments/1317308434676453476/1320348603809660968/anime-moon-landscape.jpg?ex=676945f6&is=6767f476&hm=7fd88d6c72e8eb1a56b0518d6962971698954ef630433047254948b91ec7e2ca&');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -25,28 +26,57 @@
             max-width: 600px;
             padding: 30px;
             text-align: center;
-            color: #fff;
+            color: #FFFFFF; /* Màu chữ chính */
             border-radius: 10px;
-            background: transparent;
-            box-sizing: border-box;
+            background: rgba(30, 30, 46, 0.85); /* Mờ hơn */
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5); /* Hiệu ứng bóng */
             margin-bottom: 60px;
         }
         .title-container {
-            margin-bottom: -7px;
+            margin-bottom: -20px;
             text-align: center;
+            position: relative;
+            animation: bounce 3s infinite ease-in-out; /* Hiệu ứng nhún nhẹ */
         }
         .title-container h1 {
-            color: #fff;
-            font-weight: 400;
-            font-size: 32px;
-            font-style: normal;
-            margin: 0;
-            animation: fadeIn 2s ease-in-out;
+            font-size: 42px;
+            font-weight: 800;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #FFC107, #FF4D4D, #007BFF); /* Gradient chuyển màu */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            animation: textGlow 2s infinite ease-in-out;
         }
-        @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(-20px); }
-            100% { opacity: 1; transform: translateY(0); }
+        @keyframes textGlow {
+            0%, 100% {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 193, 7, 0.7), 0 0 30px rgba(255, 193, 7, 0.6);
         }
+            50% {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 77, 77, 0.8), 0 0 40px rgba(0, 123, 255, 0.7);
+        }
+    }
+        @keyframes bounce {
+            0%, 100% {
+            transform: translateY(0);
+        }
+            50% {
+            transform: translateY(-10px);
+        }
+    }
+    .title-container h1:hover {
+    animation: textHover 0.8s infinite ease-in-out; /* Hiệu ứng rung khi hover */
+    }
+    @keyframes textHover {
+            0%, 100% {
+            transform: scale(1);
+        }
+            50% {
+            transform: scale(1.1);
+        }
+    }
         #supportName {
             font-size: 20px;
             font-weight: 400;
@@ -75,11 +105,11 @@
             font-size: 18px;
             padding: 10px;
             margin-bottom: 20px;
-            border: 1px solid #adddfd;
+            border: 1px solid #28A745; /* Đường viền màu xanh lá */
             border-radius: 5px;
             box-sizing: border-box;
-            background-color: transparent;
-            color: #fff;
+            background-color: #242424; /* Nền tối */
+            color: #FFFFFF; /* Màu chữ */
         }
         #clearInputButton {
             position: absolute;
@@ -87,7 +117,7 @@
             top: 3px;
             background: none;
             border: none;
-            color: #fff;
+            color: #FF4D4D; /* Màu đỏ nhấn */
             font-size: 18px;
             cursor: pointer;
         }
@@ -95,17 +125,82 @@
             width: 100%;
             padding: 15px;
             font-size: 18px;
-            background-color: #f0f0f0;
-            color: #333;
-            border: 2px solid #333;
+            background: linear-gradient(90deg, #00C9FF, #92FE9D); /* Xanh trời -> xanh lá nhẹ */
+            color: #FFFFFF;
+            border: 2px solid transparent;
             border-radius: 5px;
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
         #startBypassButton:hover {
-            background-color: transparent;
-            border: 2px solid #ffffff;
-            color: #fff;
+            transform: scale(1.08);
+            box-shadow: 0 8px 15px rgba(0, 201, 255, 0.5); /* Tạo bóng ánh sáng */
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Tăng khoảng cách giữa các icon */
+            margin-top: 20px;
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s, box-shadow 0.4s, filter 0.4s;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.3) rotate(10deg); /* Phóng to và quay nhẹ */
+            box-shadow: 0 10px 20px rgba(0, 201, 255, 0.6);
+            filter: brightness(1.2);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Khoảng cách giữa các biểu tượng */
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .social-links a {
+            position: relative;
+            overflow: visible;
+            text-decoration: none;
+        }
+
+        .social-links a::after {
+            content: attr(data-title); /* Lấy nội dung từ thuộc tính data-title */
+            position: absolute;
+            bottom: -30px; /* Vị trí tooltip dưới icon */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Màu nền tooltip */
+            color: #fff; /* Màu chữ */
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px); /* Hiệu ứng chuyển động nhẹ */
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s, box-shadow 0.4s, filter 0.4s;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.3) rotate(10deg);
+            box-shadow: 0 10px 20px rgba(0, 201, 255, 0.6);
+            filter: brightness(1.2);
         }
         #resultLabel {
             display: none;
@@ -115,29 +210,30 @@
             text-align: left;
         }
         #resultBox {
-            display: none; 
+            display: none;
             margin-top: 20px;
             word-wrap: break-word;
-            text-align: left;
-            white-space: pre-wrap; 
-            overflow-y: auto; 
-            max-height: 300px; 
+            white-space: pre-wrap;
+            overflow-y: auto;
+            max-height: 300px;
             cursor: pointer;
-            background-color: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.3); 
-            border-radius: 5px; 
-            padding: 10px; 
+            background-color: #242424; /* Màu tối hơn */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Đường viền nhạt */
+            border-radius: 5px;
+            padding: 10px;
+            color: #FFC107; /* Màu vàng nổi bật */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
         }
         #resultText {
             display: inline-block;
             white-space: pre; 
         }
         .footer {
-            position: absolute; 
-            bottom: 10px; 
-            left: 0; 
+            position: absolute;
+            bottom: 10px;
+            left: 0;
             font-size: 14px;
-            color: #fff;
+            color: #CCCCCC; /* Màu chữ nhạt */
             text-align: center;
             width: 100%;
             padding: 10px;
@@ -217,6 +313,10 @@
             return !!urlPattern.test(string);
         }
 
+        function clearInput() {
+            document.getElementById('linkInput').value = '';
+        }
+
         function copyToClipboard(element) {
             const tempInput = document.createElement('input');   
             tempInput.value = element.textContent;               
@@ -226,6 +326,32 @@
             document.body.removeChild(tempInput);
             alert('Result copied to clipboard!');
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const supportItems = document.querySelectorAll('#supportName .support-item');
+            let index = 0;
+
+            function showNextSupport() {
+                supportItems.forEach((item, i) => {
+                    item.classList.remove('show');
+                    if (i === index) {
+                        item.classList.add('show');
+                    }
+                });
+                index = (index + 1) % supportItems.length;
+                setTimeout(showNextSupport, 2000); 
+            }
+
+            showNextSupport();
+
+            const resultBox = document.getElementById('resultBox');
+            resultBox.addEventListener('click', () => {
+                const resultText = document.getElementById('resultText');
+                if (resultText) {
+                    copyToClipboard(resultText);
+                }
+            });
+        });
     </script>
 </head>
 <body>
@@ -254,41 +380,35 @@
             <div class="support-item">Support UnlockNow.net</div>
         </div>
         <div style="position: relative;">
-            <input type="text" id="linkInput" placeholder="Pls Enter Your Link to Bypass">
+            <input type="text" id="linkInput" placeholder="Pastes Enter Your Link to Bypass">
             <button id="clearInputButton" onclick="clearInput()">✕</button>
         </div>
         <button id="startBypassButton" onclick="bypassLink()">Start Bypass</button>
         <div id="resultLabel">Result Bypass:</div>
         <div id="resultBox"></div>
     </div>
-    <div class="social-links">
-        <a href="https://discord.com/oauth2/authorize?client_id=1316060973357858886" target="_blank">
-            <img src="https://cdn.discordapp.com/emojis/1133597989395513404?size=512" alt="Invite Bot with Emoji 1">
-            <span>Invite Bot Bypass Discord</span>
-        </a>
-        <a href="https://discord.com/oauth2/authorize?client_id=1316060973357858886" target="_blank">
-            <img src="https://cdn.discordapp.com/emojis/1273716674859630592?size=512" alt="Invite Bot with Emoji 2">
-            <span>Join Server Discord</span>
-        </a>
-    </div>
-    <style>
-        .social-links {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            align-items: center;
-        }
-        .social-links a img {
-            width: 50px;
-            height: 50px;
-            transition: transform 0.2s ease;
-        }
-        .social-links a img:hover {
-            transform: scale(1.1);
-        }
-    </style>
     <div class="footer">
-        <small>&copy; 2024 Kazona • Designed by kazona_yuta</small>
+        <small>Time: <span id="current-time"></span> • Designed by Kazona Yuta</small>
     </div>
+
+    <script>
+        // Hàm để cập nhật thời gian vào footer
+        document.addEventListener('DOMContentLoaded', function () {
+            const currentTimeSpan = document.getElementById('current-time');
+            
+            const currentTime = new Date();
+            
+            const hours = String(currentTime.getHours()).padStart(2, '0');
+            const minutes = String(currentTime.getMinutes()).padStart(2, '0');
+            const day = String(currentTime.getDate()).padStart(2, '0');
+            const month = String(currentTime.getMonth() + 1).padStart(2, '0'); // Tháng tính từ 0, nên cộng 1
+            const year = currentTime.getFullYear();
+
+            // Định dạng: Giờ:Phút Ngày/Tháng/Năm
+            const formattedTime = `${hours}:${minutes} ${day}/${month}/${year}`;
+            
+            currentTimeSpan.textContent = formattedTime;
+        });
+    </script>
 </body>
 </html>
