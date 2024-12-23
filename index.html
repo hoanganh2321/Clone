@@ -14,7 +14,7 @@
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #1E1E2E; /* Màu nền tối */
-            background-image: url('https://cdn.discordapp.com/attachments/1317308434676453476/1320365611796398201/standard.gif?ex=676955cd&is=6768044d&hm=230e40e26b721bdd793e1373a3d189f4dff0d39c1974fd50437c2249b63a31b9&');
+            background-image: url('https://cdn.discordapp.com/attachments/1317308434676453476/1320348603809660968/anime-moon-landscape.jpg?ex=676945f6&is=6767f476&hm=7fd88d6c72e8eb1a56b0518d6962971698954ef630433047254948b91ec7e2ca&');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -202,6 +202,54 @@
             box-shadow: 0 10px 20px rgba(0, 201, 255, 0.6);
             filter: brightness(1.2);
         }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Khoảng cách giữa các biểu tượng */
+            margin-top: 20px;
+            position: relative;
+        }
+
+        .social-links a {
+            position: relative;
+            overflow: visible;
+            text-decoration: none;
+        }
+
+        .social-links a::after {
+            content: attr(data-title); /* Lấy nội dung từ thuộc tính data-title */
+            position: absolute;
+            bottom: -30px; /* Vị trí tooltip dưới icon */
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Màu nền tooltip */
+            color: #fff; /* Màu chữ */
+            font-size: 14px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, transform 0.3s;
+        }   
+
+        .social-links a:hover::after {
+            opacity: 1;
+            visibility: visible;
+            transform: translateX(-50%) translateY(-5px); /* Hiệu ứng chuyển động nhẹ */
+        }
+
+        .social-links img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.4s, box-shadow 0.4s, filter 0.4s;
+        }
+
+        .social-links img:hover {
+            transform: scale(1.3) rotate(10deg);
+            box-shadow: 0 10px 20px rgba(0, 201, 255, 0.6);
+            filter: brightness(1.2);
+        }
         #resultLabel {
             display: none;
             color: #fff;
@@ -271,7 +319,7 @@
             resultLabel.style.display = 'block';
             resultBox.innerHTML = '<div class="loading-animation"></div><div class="loading-text">BYPASSING... ! </div>';
 
-            const apiUrl = `https://ethos.kys.gay/api/free/bypass?url=${encodedLink}`;
+            const apiUrl = `https://triple.kys.gay/api/addlink?url=${encodedLink}`;
             let attempts = 0;
             const maxAttempts = 3;
 
@@ -362,7 +410,13 @@
     </div>
     <div class="container">
         <div id="supportName">
+            <div class="support-item">Support Vegax</div>
+            <div class="support-item">Support Evon</div>
+            <div class="support-item">Support Keyrblx</div>
+            <div class="support-item">Support Trigon</div>
+            <div class="support-item">Support Codex</div>
             <div class="support-item">Support Fluxus</div>
+            <div class="support-item">Support Linkvertise (all domains)</div>
             <div class="support-item">Support Trigon</div>
             <div class="support-item">Support AdFocus</div>
             <div class="support-item">Support AdMaven</div>
@@ -388,6 +442,14 @@
         <button id="startBypassButton" onclick="bypassLink()">Start Bypass</button>
         <div id="resultLabel">Result Bypass:</div>
         <div id="resultBox"></div>
+    </div>
+    <div class="social-links">
+        <a href="https://www.facebook.com/Cheezze221/" target="_blank" data-title="Facebook">
+            <img src="https://cdn.discordapp.com/emojis/1187983213117853746?size=512" alt="Facebook Logo">
+        </a>
+        <a href="https://discord.gg/rnQJBjcj3D" target="_blank" data-title="Discord">
+            <img src="https://cdn.discordapp.com/emojis/1273716674859630592?size=1024" alt="Discord Logo">
+        </a>
     </div>
     <div class="footer">
         <small>Time: <span id="current-time"></span> • Designed by Kazona Yuta</small>
